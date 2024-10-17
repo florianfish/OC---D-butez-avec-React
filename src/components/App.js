@@ -2,6 +2,8 @@ import Banner from './Banner'
 import Cart from './Cart'
 import ShoppingList from './ShoppingList'
 import logo from '../assets/logo.png'
+import QuestionForm from "./QuestionForm";
+import Footer from "./Footer";
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
           </Banner>
           {/*<Cart />*/}
           <ShoppingList />
+          {/*<QuestionForm />*/}
+          <Footer />
       </div>
   )
 }
