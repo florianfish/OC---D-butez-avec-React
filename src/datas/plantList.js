@@ -8,7 +8,8 @@ export const plantList = [
     {
         name: 'ficus lyrata',
         category: 'classique',
-        id: '2ab'
+        id: '2ab',
+        isSpecialOffer: true
     },
     {
         name: 'pothos argenté',
@@ -18,12 +19,14 @@ export const plantList = [
     {
         name: 'yucca',
         category: 'classique',
-        id: '4kk'
+        id: '4kk',
+        isSpecialOffer: true
     },
     {
         name: 'olivier',
         category: 'extérieur',
-        id: '5pl'
+        id: '5pl',
+        isSpecialOffer: true
     },
     {
         name: 'géranium',
