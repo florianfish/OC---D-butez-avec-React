@@ -1,43 +1,40 @@
-import Water from '../assets/water.svg'
 import Sun from '../assets/sun.svg'
+import Water from '../assets/water.svg'
 
-const range = [1, 2, 3]
-const scales = {
-    'light' : {
-        1: 'Cette plante requiert peu de lumière',
-        2: 'Cette plante requiert modérement de lumière',
-        3: 'Cette plante requiert beaucoup de lumière'
-    },
-    'water' : {
-        1: 'Cette plante requiert peu d\'arrosage',
-        2: 'Cette plante requiert modérement d\'arrosage',
-        3: 'Cette plante requiert beaucoup d\'arrosage'
-    }
-};
-
-function CareScale({ scaleValue, careType }) {
-    const scaleType = careType === 'light' ? Sun : Water;
-    const altText = careType === 'light' ? 'sun-icon' : 'water-icon';
-
-    return (
-        <div>
-            {range.map((rangeElem) =>
-                scaleValue >= rangeElem ? (
-                    <span key={rangeElem.toString()}>
-                        <img
-                            src={scaleType}
-                            alt={altText}
-                            onClick={() => handleClick(careType, scaleValue)}
-                        />
-                    </span>
-                ) : null
-            )}
-        </div>
-    );
+// Ici, il s'agit d'une manière de faire.
+//Vous auriez aussi pu utiliser une fonction qui retourne l'élément souhaité, ou bien faire directement des conditions
+const quantityLabel = {
+	1: 'peu',
+	2: 'modérément',
+	3: 'beaucoup'
 }
 
-function handleClick(careType, scaleValue) {
-    alert(scales[careType][scaleValue])
+function CareScale({ scaleValue, careType }) {
+	const range = [1, 2, 3]
+	const scaleType =
+		careType === 'light' ? (
+			<img src={Sun} alt='sun-icon' />
+		) : (
+			<img src={Water} alt='water-icon' />
+		)
+
+	return (
+		<div
+			onClick={() =>
+				alert(
+					`Cette plante requiert ${quantityLabel[scaleValue]} ${
+						careType === 'light' ? 'de lumière' : "d'arrosage"
+					}`
+				)
+			}
+		>
+			{range.map((rangeElem) =>
+				scaleValue >= rangeElem ? (
+					<span key={rangeElem.toString()}>{scaleType}</span>
+				) : null
+			)}
+		</div>
+	)
 }
 
 export default CareScale
